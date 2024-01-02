@@ -12,6 +12,6 @@ class HttpRequest:
     def __init__(self, url):
         self.url = url
 
-    def get_html(self):
-        resp = requests.get(self.url)
-        return resp.content.decode('utf8')
+    def get_html(self, encoding="utf8"):
+        resp = requests.get(self.url, verify=False)
+        return resp.content.decode(encoding)
